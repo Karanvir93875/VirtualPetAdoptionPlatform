@@ -7,4 +7,4 @@ def home():
     return "Welcome to The Virtual Pet Adoption Platform"
 
 if __name__ == '__main__':
-    app.run(debug=true)
+    app.run(debug=True)
