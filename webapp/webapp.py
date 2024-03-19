@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 # Database connection parameters
 db_config = {
-    'host': 'your-rds-host.amazonaws.com',
-    'user': 'your-master-username',
-    'password': 'your-password',
-    'database': 'your-database-name'
+    'host': 'petpaldb1.cd2oqkeq6cy3.us-east-1.rds.amazonaws.com',
+    'user': 'petpaldb',
+    'password': 'Flameo17',
+    'database': 'petpaldb1'
 }
 
 # Establishing a connection to the MySQL database
