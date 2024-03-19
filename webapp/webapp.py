@@ -1,4 +1,5 @@
 import mysql.connector
+from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 
 app = Flask(__name__)
@@ -7,8 +8,8 @@ app = Flask(__name__)
 db_config = {
     'host': 'petpaldb1.cd2oqkeq6cy3.us-east-1.rds.amazonaws.com',
     'user': 'petpaldb',
-    'password': 'Flameo17',
-    'database': 'petpaldb1'
+    'password': '',
+    'database': ''
 }
 
 # Establishing a connection to the MySQL database
@@ -24,3 +25,20 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# Initialize SQLAlchemy with no settings
+db = SQLAlchemy()
+
+    # Configuration settings for application, for example:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@localhost/petpal'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+    db.init_app(app)
+    
+    # Import and register blueprints
+    from .routes import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+    
+
+    
+    return app
