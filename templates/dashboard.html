@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - {{ super() }}{% endblock %}
+
+{% block content %}
+<h2>Your Dashboard</h2>
+<p>Here you can manage your adopted pets, view their status, and interact with them.</p>
+
+<!-- Example loop to display pets (assuming 'pets' variable is passed to template) -->
+<div class="pets-list">
+    {% for pet in pets %}
+    <div class="pet">
+        <h3>{{ pet.name }}</h3>
+        <p>Type: {{ pet.type }}</p>
+        <!-- Add more pet details here -->
+    </div>
+    {% else %}
+    <p>You have not adopted any pets yet. <a href="{{ url_for('index') }}">Adopt a pet now!</a></p>
+    {% endfor %}
+</div>
+
+{% endblock %}
